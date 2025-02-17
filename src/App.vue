@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue';
 import vfib from 'virtual:fib'
-
+import vconfig from 'virtual:config'
+console.log(vconfig())
 console.log(vfib(10))
 </script>
 
