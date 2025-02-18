@@ -9,4 +9,21 @@ export default defineConfig({
     viteHtmlTitlePlugin({ title: "Hello Vite with title plugin" }),
     viteDynamicVirtualModulePlugin(),
   ],
+  build: {
+    modulePreload: {
+      polyfill: true
+    },
+    rollupOptions: {
+      output: {
+        chunkFileNames: 'assets/[name].[hash].js',
+        entryFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[ext]/[name].[hash].[ext]',
+        manualChunks: {
+           'vender': ['vue', 'vue-router'],
+           'element-plus': ['element-plus'],
+           'lodash-es': ['lodash-es'],
+        }
+      }
+    }
+  }
 });
